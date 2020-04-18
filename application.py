@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from sentifish import Sentiment
 
-app = Flask(__name__)
+application = app = Flask(__name__)
 
 
 @app.route('/')
