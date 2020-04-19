@@ -1,23 +1,22 @@
-from flask import Flask, jsonify
-from sentifish import Sentiment
+from flask import Flask
+from textblob import TextBlob
 
-application = app = Flask(__name__)
+application = Flask(__name__)
 
 
-@app.route('/')
+@application.route('/')
 def index():
-    return jsonify({
-        "status": "Api is running",
-        "suggestion": "/predict/<text> is the route to get sentiment analyze"
-    })
+    return "/predict/< text > is the route to get sentiment analyze"
 
 
-@app.route('/predict/<text>')
+@application.route('/predict/<text>')
 def predict_sentiment(text):
-    obj = Sentiment(text)
-    polarity = obj.analyze()
-    positive = obj.isPositive()
-    resp = jsonify(
-        {"input_text": text, "postive": positive, "polarity": polarity})
+    analysis = TextBlob(text)
+    resp = analysis.sentiment.polarity
+    print(resp)
+    return '<h1>polarity: {}</h1>'.format(resp)
 
-    return resp
+
+# run the app.
+if __name__ == "__main__":
+    application.run()

@@ -1,2 +1,8 @@
-__pycache__
+# vscode related
 .vscode
+__pycache__
+
+# aws env related
+virt
+*.zip
+*.pem
