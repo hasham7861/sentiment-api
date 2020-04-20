@@ -1,5 +1,5 @@
 # sentiment-api
-A simple sentiment api made in flask
+A simple sentiment api made in flask to be deployed on to aws
 
 ## To run the app locally
 1. Get into the flask environment `source virt/bin/activate`
